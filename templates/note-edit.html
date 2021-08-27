@@ -1,0 +1,30 @@
+{% extends 'base/base_layout_with_profile.html' %}
+
+{% block content %}
+
+        <div class="body">
+            <!--headings-->
+            <h1>Edit Note</h1>
+            <!--headings-->
+
+            <!--note edit data form-->
+            <div class="form">
+                <form method="POST" action="{% url 'edit note' note.id %}">
+
+                    <label for="name">Title</label>
+                    {{ form.title }}
+
+                    <label for="content">Content</label>
+                    {{ form.content }}
+
+                    <label for="image_url">Link to Image</label>
+                    {{ form.image_url }}
+
+                    <input type="submit" value="Edit" />
+                    {% csrf_token %}
+                </form>
+            </div>
+            <!--end note edit data form-->
+        </div>
+
+{% endblock %}

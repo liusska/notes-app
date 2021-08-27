@@ -1,0 +1,31 @@
+{% extends 'base/base_layout_with_profile.html' %}
+
+{% block content %}
+
+
+    <div class="body">
+        <!--headings-->
+        <h1>Delete Note</h1>
+        <!--headings-->
+
+        <!--note delete data form-->
+        <div class="form">
+            <form method="POST" action="{% url 'delete note' note.id %}">
+
+                <label for="name">Title</label>
+                {{ form.title }}
+
+                <label for="content">Content</label>
+                {{ form.content }}
+
+                <label for="image_url">Link to Image</label>
+                {{ form.image_url }}
+
+                <input type="submit" value="Delete"/>
+                {% csrf_token %}
+            </form>
+        </div>
+        <!--end note delete data form-->
+    </div>
+
+{% endblock %}
